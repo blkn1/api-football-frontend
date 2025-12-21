@@ -1,0 +1,4 @@
+node_modules
+dist
+.git_corrupt
+project_backup_*.tar.gz

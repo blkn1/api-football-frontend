@@ -1,0 +1,84 @@
+2025-Dec-21 15:23:34.344438 Starting deployment of blkn1/api-football-frontend:main to localhost.
+2025-Dec-21 15:23:34.650133 Preparing container with helper image: ghcr.io/coollabsio/coolify-helper:1.0.12
+2025-Dec-21 15:23:38.065081 ----------------------------------------
+2025-Dec-21 15:23:38.077031 Importing blkn1/api-football-frontend:main (commit sha e0b67120e3b2000d5ac7303bc0e7aed66aa2491a) to /artifacts/joo4cggsoskkwsgwg8k0gs4s.
+2025-Dec-21 15:23:39.946750 Image not found (aw0o44s400cw8k404kssgoso:e0b67120e3b2000d5ac7303bc0e7aed66aa2491a). Building new image.
+2025-Dec-21 15:23:42.686741 ----------------------------------------
+2025-Dec-21 15:23:42.701286 Building docker image started.
+2025-Dec-21 15:23:42.716201 To check the current progress, click on Show Debug Logs.
+2025-Dec-21 15:23:52.455924 ========================================
+2025-Dec-21 15:23:52.470978 Deployment failed: Command execution failed (exit code 1): docker exec joo4cggsoskkwsgwg8k0gs4s bash -c 'bash /artifacts/build.sh'
+2025-Dec-21 15:23:52.470978 Error: #0 building with "default" instance using docker driver
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #1 [internal] load build definition from Dockerfile
+2025-Dec-21 15:23:52.470978 #1 transferring dockerfile: 941B done
+2025-Dec-21 15:23:52.470978 #1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+2025-Dec-21 15:23:52.470978 #1 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #2 [internal] load metadata for docker.io/library/node:18-alpine
+2025-Dec-21 15:23:52.470978 #2 DONE 0.8s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #3 [internal] load metadata for docker.io/library/nginx:stable-alpine
+2025-Dec-21 15:23:52.470978 #3 DONE 0.8s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #4 [internal] load .dockerignore
+2025-Dec-21 15:23:52.470978 #4 transferring context: 2B done
+2025-Dec-21 15:23:52.470978 #4 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #5 [build 1/6] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+2025-Dec-21 15:23:52.470978 #5 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #6 [stage-1 1/4] FROM docker.io/library/nginx:stable-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284
+2025-Dec-21 15:23:52.470978 #6 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #7 [internal] load build context
+2025-Dec-21 15:23:52.470978 #7 transferring context: 214.34kB 0.0s done
+2025-Dec-21 15:23:52.470978 #7 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #8 [build 2/6] WORKDIR /app
+2025-Dec-21 15:23:52.470978 #8 CACHED
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #9 [build 3/6] COPY package*.json ./
+2025-Dec-21 15:23:52.470978 #9 CACHED
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #10 [build 4/6] RUN npm install
+2025-Dec-21 15:23:52.470978 #10 CACHED
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #11 [build 5/6] COPY . .
+2025-Dec-21 15:23:52.470978 #11 DONE 0.0s
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 #12 [build 6/6] RUN npm run build
+2025-Dec-21 15:23:52.470978 #12 1.052
+2025-Dec-21 15:23:52.470978 #12 1.052 > football-data-collector-frontend@0.0.0 build
+2025-Dec-21 15:23:52.470978 #12 1.052 > tsc && vite build
+2025-Dec-21 15:23:52.470978 #12 1.052
+2025-Dec-21 15:23:52.470978 #12 6.659 src/pages/FixturesPage.tsx(5,33): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+2025-Dec-21 15:23:52.470978 #12 6.659 src/pages/FixturesPage.tsx(7,44): error TS7006: Parameter 's' implicitly has an 'any' type.
+2025-Dec-21 15:23:52.470978 #12 6.659 src/pages/FixturesPage.tsx(7,74): error TS7006: Parameter 'n' implicitly has an 'any' type.
+2025-Dec-21 15:23:52.470978 #12 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 2
+2025-Dec-21 15:23:52.470978 ------
+2025-Dec-21 15:23:52.470978 > [build 6/6] RUN npm run build:
+2025-Dec-21 15:23:52.470978 1.052
+2025-Dec-21 15:23:52.470978 1.052 > football-data-collector-frontend@0.0.0 build
+2025-Dec-21 15:23:52.470978 1.052 > tsc && vite build
+2025-Dec-21 15:23:52.470978 1.052
+2025-Dec-21 15:23:52.470978 6.659 src/pages/FixturesPage.tsx(5,33): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+2025-Dec-21 15:23:52.470978 6.659 src/pages/FixturesPage.tsx(7,44): error TS7006: Parameter 's' implicitly has an 'any' type.
+2025-Dec-21 15:23:52.470978 6.659 src/pages/FixturesPage.tsx(7,74): error TS7006: Parameter 'n' implicitly has an 'any' type.
+2025-Dec-21 15:23:52.470978 ------
+2025-Dec-21 15:23:52.470978
+2025-Dec-21 15:23:52.470978 1 warning found (use docker --debug to expand):
+2025-Dec-21 15:23:52.470978 - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+2025-Dec-21 15:23:52.470978 Dockerfile:14
+2025-Dec-21 15:23:52.470978 --------------------
+2025-Dec-21 15:23:52.470978 12 |
+2025-Dec-21 15:23:52.470978 13 | COPY . .
+2025-Dec-21 15:23:52.470978 14 | >>> RUN npm run build
+2025-Dec-21 15:23:52.470978 15 |
+2025-Dec-21 15:23:52.470978 16 | # Stage 2: Production
+2025-Dec-21 15:23:52.470978 --------------------
+2025-Dec-21 15:23:52.470978 ERROR: failed to build: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 2
+2025-Dec-21 15:23:52.470978 exit status 1
+2025-Dec-21 15:23:52.611942 ========================================
+2025-Dec-21 15:23:52.624884 Deployment failed. Removing the new version of your application.
+2025-Dec-21 15:23:53.295437 Gracefully shutting down build container: joo4cggsoskkwsgwg8k0gs4s
