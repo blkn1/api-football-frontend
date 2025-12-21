@@ -106,6 +106,41 @@ export async function getLiveScores() {
     return [];
 }
 
+// ... (existing exports)
+
+export interface FixtureEvent {
+    time: {
+        elapsed: number;
+        extra?: number;
+    };
+    team: {
+        id: number;
+        name: string;
+        logo: string;
+    };
+    player: {
+        id: number;
+        name: string;
+    };
+    assist: {
+        id: number | null;
+        name: string | null;
+    };
+    type: string; // "Goal", "Card", "subst", "Var"
+    detail: string; // "Yellow Card", "Normal Goal", etc.
+    comments?: string;
+}
+
+export interface FixtureDetails {
+    events: FixtureEvent[];
+    // We can add statistics/lineups later if needed
+}
+
+export async function getFixtureDetails(fixtureId: number) {
+    // GET /v1/fixtures/{id}/details
+    return fetchApi<FixtureDetails>(`/v1/fixtures/${fixtureId}/details`);
+}
+
 // Utility from contract
 export const LIVE_STATUSES = new Set(["1H", "2H", "HT", "ET", "BT", "P", "LIVE", "SUSP", "INT"]);
 export const FINISHED_STATUSES = new Set(["FT", "AET", "PEN", "AWD", "WO", "ABD", "CANC"]);
