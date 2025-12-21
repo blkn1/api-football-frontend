@@ -14,14 +14,24 @@ export function MatchDetailsDialog({ fixture, children }: MatchDetailsDialogProp
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (open && !details) {
-            setLoading(true);
-            getFixtureDetails(fixture.id)
-                .then(setDetails)
-                .catch(err => console.error("Failed to fetch details", err))
-                .finally(() => setLoading(false));
+        if (open) {
+            // Initial fetch
+            if (!details) setLoading(true); // Only show loading spinner on first load
+
+            const fetchDetails = () => {
+                getFixtureDetails(fixture.id)
+                    .then(setDetails)
+                    .catch(err => console.error("Failed to fetch details", err))
+                    .finally(() => setLoading(false));
+            };
+
+            fetchDetails();
+
+            // Poll every 15 seconds for updates while open
+            const interval = setInterval(fetchDetails, 15000);
+            return () => clearInterval(interval);
         }
-    }, [open, fixture.id, details]);
+    }, [open, fixture.id]);
 
     // Helper to merge stats for display
     const mergedStats = details?.statistics?.length === 2 ? details.statistics[0].statistics.map((stat) => {
