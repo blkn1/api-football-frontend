@@ -131,9 +131,21 @@ export interface FixtureEvent {
     comments?: string;
 }
 
+export interface FixtureStatistic {
+    team: {
+        id: number;
+        name: string;
+        logo: string;
+    };
+    statistics: {
+        type: string;
+        value: string | number | null;
+    }[];
+}
+
 export interface FixtureDetails {
     events: FixtureEvent[];
-    // We can add statistics/lineups later if needed
+    statistics: FixtureStatistic[];
 }
 
 export async function getFixtureDetails(fixtureId: number) {
